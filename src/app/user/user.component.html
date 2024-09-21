@@ -1,0 +1,32 @@
+<div>
+  <button (click)="onSelectUser()">
+    <!-- String Interpolation -->
+    <!-- <img src="{{selectedUser.avatar}}"/>
+    <span>{{ selectedUser.name }}</span> -->
+
+    <!-- Property Binding -->
+     <!-- <img [src]="'assets/users/' + selectedUser.avatar" [alt]="selectedUser.name"/>
+     <span>{{selectedUser.name}}</span> -->
+
+     <!-- Outsourcing the image path -->
+     <!-- <img [src]="imgPath()" [alt]="selectedUser().name"/>  <!--If we are not using signal then selectUser.name is enough-->
+     <!-- <span>{{selectedUser().name}}</span> -->
+
+
+      <img [src]="imgPath()" [alt]="user.name"/>  <!--If we are not using signal then selectUser.name is enough-->
+      <span>{{user.name}}</span>
+
+  </button>
+</div>
+
+
+
+<!-- Attributes are defined in the HTML, but properties are part of the DOM object itself.
+Attributes are mostly static once the element is created, while properties can change during the life cycle of an element.
+Property binding is typically faster because it interacts directly with the DOM properties, whereas attribute binding adds or modifies the HTML attribute.
+
+<input [attr.maxlength]="10" [value]="username">
+In this example:
+
+[attr.maxlength] binds to the attribute, ensuring the input field has a maximum character limit of 10.
+[value] binds to the DOM property value, allowing dynamic updates of the input's content. -->

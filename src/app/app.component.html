@@ -33,7 +33,7 @@
     *ngIf="selectedUserName; else fallback"
     [name]="selectedUserName.name"
   /> -->
-  <app-task [name]="selectedUserName.name" />
+  <app-task [userId]="selectedUserName.id" [name]="selectedUserName.name" />
   <!-- ngFor and ngIf is for older Angular versions. -->
   }@else {
   <!-- <ng-template #fallback> -->

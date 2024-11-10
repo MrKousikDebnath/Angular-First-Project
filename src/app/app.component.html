@@ -1,23 +1,43 @@
 <app-header></app-header>
 <main>
   <ul id="users">
+    <!-- Using Conditional Statement -->
+    @for (user of users; track user.id){
+    <!-- <li *ngFor="let user of users"> -->
     <li>
-      <!-- [id]="users[0].id"
+      <app-user [user]="user" (select)="onSelectUser($event)" />
+    </li>
+    }
+
+    <!-- <li> -->
+    <!-- [id]="users[0].id"
       [avatar]="users[0].avatar"
       [name]="users[0].name" -->
-      <app-user [user]="users[0]" (select)="onSelectUser($event)" />
-    </li>
-    <li>
+    <!-- <app-user [user]="users[0]" (select)="onSelectUser($event)" /> -->
+    <!-- </li> -->
+    <!-- <li>
       <app-user [user]="users[1]" (select)="onSelectUser($event)" />
-    </li>
-    <li>
+    </li> -->
+    <!-- <li>
       <app-user [user]="users[2]" (select)="onSelectUser($event)" />
-    </li>
-    <li>
+    </li> -->
+    <!-- <li>
       <app-user [user]="users[3]" (select)="onSelectUser($event)" />
-    </li>
+    </li> -->
   </ul>
 
   <!-- If we use name property as '?' then we can use a fallback machanism like [name]="selectedUser ? selectedUser.name : ''"-->
+
+  @if(selectedUserName){
+  <!-- <app-task
+    *ngIf="selectedUserName; else fallback"
+    [name]="selectedUserName.name"
+  /> -->
   <app-task [name]="selectedUserName.name" />
+  <!-- ngFor and ngIf is for older Angular versions. -->
+  }@else {
+  <!-- <ng-template #fallback> -->
+  <p id="fallback">Select a user to see their tasks!</p>
+  <!-- </ng-template> -->
+  }
 </main>

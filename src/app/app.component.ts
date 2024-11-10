@@ -4,23 +4,27 @@ import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
 import { TaskComponent } from './task/task.component';
 import { DUMMY_USERS } from './dummy-users';
+import { NgFor } from '@angular/common';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, UserComponent, TaskComponent],
+  imports: [RouterOutlet, HeaderComponent, UserComponent, TaskComponent, NgFor, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  users=DUMMY_USERS;
-  selectedUserId='u1';
+  users = DUMMY_USERS;
 
-  get selectedUserName(){
-    return this.users.find((u)=>u.id===this.selectedUserId)!;
+  selectedUserId?: string;
+  // selectedUserId='u1';
+
+  get selectedUserName() {
+    return this.users.find((u) => u.id === this.selectedUserId)!;
   }
 
-  onSelectUser(id: string){
-    this.selectedUserId=id;
+  onSelectUser(id: string) {
+    this.selectedUserId = id;
   }
 }
